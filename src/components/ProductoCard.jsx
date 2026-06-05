@@ -1,4 +1,5 @@
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function ProductoCard({ producto }) {
   const sinStock = producto.stock === 0;
@@ -17,6 +18,18 @@ export default function ProductoCard({ producto }) {
           {sinStock
             ? <span className="sin-stock">Sin stock</span>
             : <small>Stock: {producto.stock}</small>}
+        </div>
+        <div className="d-grid gap-2">
+          <Button as={Link} to={`/producto/${producto.id}`} className="btn-secundario" size="sm">
+            Ver detalle
+          </Button>
+          <Button
+            className="btn-principal"
+            size="sm"
+            disabled={sinStock}
+          >
+            {sinStock ? 'No disponible' : 'Agregar al carrito'}
+          </Button>
         </div>
       </Card.Body>
     </Card>
