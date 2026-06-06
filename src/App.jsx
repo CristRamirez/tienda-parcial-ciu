@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Inicio from './pages/Inicio.jsx';
 import Nosotros from './pages/Nosotros.jsx';
+import DetalleProducto from './pages/DetalleProducto.jsx';
 
 export default function App() {
   return (
@@ -13,7 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/productos" element={<Productos />} />
-          <Route path="/producto/:id" element={<div>Detalle</div>} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<div>Carrito</div>} />
           <Route path="/contacto" element={<div>Contacto</div>} />
           <Route path="/nosotros" element={<Nosotros />} />
