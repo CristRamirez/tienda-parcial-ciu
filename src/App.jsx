@@ -3,6 +3,7 @@ import Productos from './pages/Productos.jsx';
 import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Inicio from './pages/Inicio.jsx';
+import Nosotros from './pages/Nosotros.jsx';
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
           <Route path="/producto/:id" element={<div>Detalle</div>} />
           <Route path="/carrito" element={<div>Carrito</div>} />
           <Route path="/contacto" element={<div>Contacto</div>} />
-          <Route path="/nosotros" element={<div>Nosotros</div>} />
+          <Route path="/nosotros" element={<Nosotros />} />
           <Route path="*" element={<Inicio />} />
         </Routes>
       </main>
