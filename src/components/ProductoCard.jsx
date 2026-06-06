@@ -1,7 +1,9 @@
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCarrito } from '../context/CarritoContext.jsx';
 
 export default function ProductoCard({ producto }) {
+  const { agregar } = useCarrito();
   const sinStock = producto.stock === 0;
 
   return (
@@ -27,6 +29,7 @@ export default function ProductoCard({ producto }) {
             className="btn-principal"
             size="sm"
             disabled={sinStock}
+            onClick={() => agregar(producto)}
           >
             {sinStock ? 'No disponible' : 'Agregar al carrito'}
           </Button>
