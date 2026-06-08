@@ -1,10 +1,31 @@
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Row, Col, Button, Modal, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useCarrito } from '../context/CarritoContext.jsx';
 import CarritoItem from '../components/CarritoItem.jsx';
 
 export default function Carrito() {
   const { items, total, cantidadTotal, vaciar } = useCarrito();
+  const [mostrarModal, setMostrarModal] = useState(false);
+  const [compraFinalizada, setCompraFinalizada] = useState(false);
+
+  const confirmar = () => {
+    setMostrarModal(false);
+    setCompraFinalizada(true);
+    vaciar();
+  };
+
+  if (compraFinalizada) {
+    return (
+      <Container className="py-5">
+        <Alert variant="success">
+          <Alert.Heading>¡Compra confirmada! 🎉</Alert.Heading>
+          <p>Gracias por elegir La Mitad Más Uno. Recibirás un mail con el detalle de tu pedido. ¡Dale Boca! 💙💛</p>
+          <Button as={Link} to="/productos" className="btn-principal">Seguir comprando</Button>
+        </Alert>
+      </Container>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -40,6 +61,9 @@ export default function Carrito() {
               <strong>${total.toLocaleString('es-AR')}</strong>
             </div>
             <div className="d-grid gap-2 mt-3">
+              <Button className="btn-principal" size="lg" onClick={() => setMostrarModal(true)}>
+                Confirmar compra
+              </Button>
               <Button as={Link} to="/contacto" className="btn-secundario">
                 Completar datos
               </Button>
@@ -47,6 +71,20 @@ export default function Carrito() {
           </div>
         </Col>
       </Row>
+
+      <Modal show={mostrarModal} onHide={() => setMostrarModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirmar compra</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>Vas a confirmar la compra de <strong>{cantidadTotal} productos</strong> por un total de <strong>${total.toLocaleString('es-AR')}</strong>.</p>
+          <p className="text-muted">Esta es una compra simulada con fines académicos.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setMostrarModal(false)}>Cancelar</Button>
+          <Button className="btn-principal" onClick={confirmar}>Confirmar</Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 }
