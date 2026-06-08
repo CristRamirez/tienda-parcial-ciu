@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 export default function Nosotros() {
     return (
         <Container className="py-5">
-            <h2 className="titulo-seccion">⚽ Nosotros</h2>
+            <h2 className="titulo-seccion">Nosotros</h2>
             <Row className="g-4">
                 <Col md={6}>
                     <img
@@ -21,7 +21,7 @@ export default function Nosotros() {
                     <p>Tenemos camisetas titulares, suplentes, ediciones retro, indumentaria de
                     entrenamiento, accesorios para la casa y todo lo que el hincha necesita
                     para ir a la cancha.</p>
-                    <h4 className="mt-4" style={{color: 'var(--color-primario)', fontWeight: 900}}>💙💛 Nuestros valores</h4>
+                    <h4 className="mt-4" style={{color: 'var(--color-primario)', fontWeight: 900}}>Nuestros valores</h4>
                     <ul>
                     <li><strong>Pasión:</strong> Boca es nuestra vida.</li>
                     <li><strong>Calidad:</strong> Solo productos oficiales o réplicas autorizadas.</li>
