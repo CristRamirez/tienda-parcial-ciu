@@ -19,8 +19,8 @@ export default function Carrito() {
     return (
       <Container className="py-5">
         <Alert variant="success">
-          <Alert.Heading>¡Compra confirmada! 🎉</Alert.Heading>
-          <p>Gracias por elegir La Mitad Más Uno. Recibirás un mail con el detalle de tu pedido. ¡Dale Boca! 💙💛</p>
+          <Alert.Heading>¡Compra confirmada!</Alert.Heading>
+          <p>Gracias por elegir La Mitad Más Uno. Recibirás un mail con el detalle de tu pedido. ¡Dale Boca!</p>
           <Button as={Link} to="/productos" className="btn-principal">Seguir comprando</Button>
         </Alert>
       </Container>
@@ -78,7 +78,6 @@ export default function Carrito() {
         </Modal.Header>
         <Modal.Body>
           <p>Vas a confirmar la compra de <strong>{cantidadTotal} productos</strong> por un total de <strong>${total.toLocaleString('es-AR')}</strong>.</p>
-          <p className="text-muted">Esta es una compra simulada con fines académicos.</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setMostrarModal(false)}>Cancelar</Button>

@@ -7,7 +7,15 @@ export default function Navbar() {
   return (
     <BSNavbar expand="lg" className="navbar-tienda" variant="dark" sticky="top">
       <Container>
-        <BSNavbar.Brand as={Link} to="/">La Mitad Más Uno</BSNavbar.Brand>
+        <BSNavbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2">
+          <img
+            src="/CABJ70.png"
+            alt="CABJ"
+            height="36"
+            style={{ objectFit: 'contain' }}
+          />
+          La Mitad Más Uno
+        </BSNavbar.Brand>
         <BSNavbar.Toggle aria-controls="nav-tienda" />
         <BSNavbar.Collapse id="nav-tienda">
           <Nav className="ms-auto">
