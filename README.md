@@ -25,7 +25,7 @@ npm install
 npm run dev
 ```
 
-Abrir [http://localhost:5173](http://localhost:5173)
+Deploy en render : https://tienda-parcial-ciu.onrender.com/
 
 Build de producción:
 
